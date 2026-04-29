@@ -1,0 +1,78 @@
+{
+  "test_cases": [
+    {
+      "name": "订单状态查询",
+      "category": "order_inquiry",
+      "input": "帮我查一下订单12345现在到哪了",
+      "expected_intent": "order_inquiry",
+      "expected_sentiment": "neutral"
+    },
+    {
+      "name": "物流进度咨询",
+      "category": "order_inquiry",
+      "input": "我的包裹什么时候能送到？",
+      "expected_intent": "order_inquiry",
+      "expected_sentiment": "neutral"
+    },
+    {
+      "name": "退款未到账",
+      "category": "after_sales",
+      "input": "我的商品已经退货一周了，但是退款还没到账，怎么回事？",
+      "expected_intent": "after_sales",
+      "expected_sentiment": "negative",
+      "requires_reasoning": true
+    },
+    {
+      "name": "退换货申请",
+      "category": "after_sales",
+      "input": "我想申请退货，商品有质量问题",
+      "expected_intent": "after_sales",
+      "expected_sentiment": "negative"
+    },
+    {
+      "name": "密码重置",
+      "category": "account_issue",
+      "input": "我忘记了登录密码，怎么重置？",
+      "expected_intent": "account_issue",
+      "expected_sentiment": "neutral"
+    },
+    {
+      "name": "账户信息修改",
+      "category": "account_issue",
+      "input": "我想修改绑定的手机号",
+      "expected_intent": "account_issue",
+      "expected_sentiment": "neutral"
+    },
+    {
+      "name": "复合问题-订单+优惠",
+      "category": "complex_issue",
+      "input": "我想修改订单地址，同时能不能给我一张优惠券作为补偿？",
+      "expected_intent": "complex_issue",
+      "expected_sentiment": "neutral",
+      "requires_coordination": true
+    },
+    {
+      "name": "愤怒客户投诉",
+      "category": "after_sales",
+      "input": "你们的服务太差了！退款这么久都没处理，我要投诉！",
+      "expected_intent": "after_sales",
+      "expected_sentiment": "angry"
+    },
+    {
+      "name": "满意客户反馈",
+      "category": "other",
+      "input": "谢谢你们的帮助，问题已经解决了，服务很好！",
+      "expected_intent": "other",
+      "expected_sentiment": "positive"
+    },
+    {
+      "name": "长链推理场景",
+      "category": "after_sales",
+      "input": "订单号ORDER20240115，我已经退货了，仓库也签收了，为什么财务说还在审核？这都5天了！",
+      "expected_intent": "after_sales",
+      "expected_sentiment": "negative",
+      "requires_reasoning": true,
+      "reasoning_steps": 8
+    }
+  ]
+}
